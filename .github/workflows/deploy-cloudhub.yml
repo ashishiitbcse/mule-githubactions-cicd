@@ -22,4 +22,4 @@ jobs:
         cache: maven
         
     - name: Build and deploy to cloudHUb
-      run: mvn clean deploy -DmuleDeploy -DmuleVersion=4.4.0 --file pom.xml .maven/settings.xml
+      run: mvn clean deploy -DmuleDeploy -DmuleVersion=4.4.0 --file pom.xml -s .maven/settings.xml
