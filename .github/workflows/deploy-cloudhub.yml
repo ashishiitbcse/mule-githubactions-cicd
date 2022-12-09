@@ -22,4 +22,8 @@ jobs:
         cache: maven
         
     - name: Build and deploy to cloudHUb
-      run: mvn clean deploy -DmuleDeploy -DmuleVersion=4.4.0 --file pom.xml -s .maven/settings.xml
+      env:
+        PLATFORM_USERNAME: ${{ secrets.PLATFORM_USERNAME }}
+        PLATFORM_PASSWORD: ${{ secrets.PLATFORM_PASSWORD }}
+        MULE_VERSION: ${{ secrets.MULE_VERSION }}
+      run: mvn clean deploy -DmuleDeploy -DmuleVersion=$MULE_VERSION --file pom.xml -s .maven/settings.xml
